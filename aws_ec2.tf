@@ -7,6 +7,6 @@ resource "aws_instance" "ecomm-web" {
   key_name = "aws-key"
   user_data = file("ecomm.sh")
   tags = {
-    Name = "tf-example"
+    Name = "ecomm-server"
   }
 }
