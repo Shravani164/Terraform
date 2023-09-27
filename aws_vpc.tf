@@ -1,5 +1,5 @@
 # VPC
-resource "aws_vpc" "ecomm" {
+resource "aws_vpc" "ecomm-web" {
   cidr_block       = "10.0.0.0/16"
   instance_tenancy = "default"
 
@@ -12,7 +12,7 @@ resource "aws_vpc" "ecomm" {
 resource "aws_subnet" "ecomm-pub-sn" {
   vpc_id     = aws_vpc.ecomm.id
   cidr_block = "10.0.1.0/24"
-  availability_zone = "us-east-2a"
+  availability_zone = "us-east-1a"
   map_public_ip_on_launch = "true"
 
   tags = {
@@ -24,7 +24,7 @@ resource "aws_subnet" "ecomm-pub-sn" {
 resource "aws_subnet" "ecomm-pvt-sn" {
   vpc_id     = aws_vpc.ecomm.id
   cidr_block = "10.0.2.0/24"
-  availability_zone = "us-east-2b"
+  availability_zone = "us-east-1a"
   map_public_ip_on_launch = "false"
 
   tags = {
